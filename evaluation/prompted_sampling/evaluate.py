@@ -22,7 +22,7 @@ import random
 
 from nltk.translate.bleu_score import SmoothingFunction, sentence_bleu
 
-from perspective_api import PerspectiveWorker, unpack_scores
+# from perspective_api import PerspectiveWorker, unpack_scores
 
 from transformers import GPT2PreTrainedModel, GPT2Model
 from transformers.modeling_outputs import SequenceClassifierOutputWithPast, SequenceClassifierOutput
