@@ -202,7 +202,7 @@ then
     NUM_SAMPLES=20  
     OUTPUTLEN=$OUTPUTLEN
     MAXLEN=$OUTPUTLEN
-    sentmodel=SENTIMENTMODEL${SENTIMENTMODELID}UNCASED
+    sentmodel=SENTIMENTMODELSST2UNCASED
     echo "model",${!sentmodel}
     model=$PRIMARYMODEL:${!sentmodel}
     tokenizer=$PRIMARYMODEL:${!sentmodel}
