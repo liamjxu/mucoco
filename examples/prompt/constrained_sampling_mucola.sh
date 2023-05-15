@@ -1002,7 +1002,7 @@ then
         --outfile $OUTFILE\
         --output-style $OUTPUTSTYLE\
         --allow-diff-vocab
-    bash examples/prompt/evaluate.sh $option $OUTFILE $EVALFILE $EXTRAS $DATAFILE 
+    # bash examples/prompt/evaluate.sh $option $OUTFILE $EVALFILE $EXTRAS $DATAFILE 
     done="true"
 else
     if [[ "$done" != "true" ]]
