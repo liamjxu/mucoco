@@ -9,6 +9,7 @@ import transformers
 import gc
 import time
 import json
+from tqdm import trange
 
 
 from transformers import AutoTokenizer, AutoConfig
@@ -506,10 +507,10 @@ def main(args):
                         # predicted_batch.append(AR_predicted_indices)
                         predicted_batches.append(AR_predicted_indices.to(device))
                     if args.time:
-                        print(time.time()-starttime)
+                        print('current time:', time.time()-starttime)
 
             broken_skip = False
-            for sample_idx in range(args.num_samples):
+            for sample_idx in trange(args.num_samples):
                 for restart_idx in range(args.restarts + 1): # restart the optimization if the constraints are not satisfied
 
                     predicted_batch = predicted_batches[sample_idx * (args.restarts + 1) + restart_idx]
@@ -680,15 +681,15 @@ def main(args):
                                     target_prefix = torch.empty((source_indices.size(0), 0)).long().to(device)
                                     sent_length = init_value.size(1)
                                     break_after=True 
-                                    print(predicted_batch.size())   
+                                    print("predicted_batch.size()", predicted_batch.size())   
                                     print(sent_length)
                                 elif args.init == "target": #initialize the target with the autoregressive output
                                     init_value = embed_luts[0](predicted_batch)
                                     target_prefix = torch.empty((source_indices.size(0), 0)).long().to(device)
                                     sent_length = init_value.size(1)
                                     break_after=True 
-                                    print(predicted_batch.size())   
-                                    print(sent_length)
+                                    print("predicted_batch.size()", predicted_batch.size())   
+                                    print("sent_length", sent_length)
                                 elif args.init == "random_vocab":
                                     random_indices = torch.multinomial(torch.ones(primary_vocab_size,)/primary_vocab_size, num_samples=batch_size*sent_length, replacement=True).view(batch_size, sent_length).to(device)
                                     init_value = embed_luts[0](random_indices)
@@ -1101,7 +1102,7 @@ def main(args):
 
                             if args.time:
                                 r = time.time()-starttime
-                                print(r)
+                                print("time.time()-starttime", r)
                                 avg_time += r
 
                             predictions = []
