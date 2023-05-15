@@ -199,7 +199,7 @@ then
     OPTIMSTEPS=300
     DATASTYLE="text"
     DATAFILE=$DATA_DIR/control-prompts/pplm-discrim-prompts/prompts.txt
-    NUM_SAMPLES=20  
+    NUM_SAMPLES=1  
     OUTPUTLEN=$OUTPUTLEN
     MAXLEN=$OUTPUTLEN
     sentmodel=SENTIMENTMODELSST2UNCASED
