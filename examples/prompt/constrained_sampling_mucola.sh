@@ -41,7 +41,7 @@ OUTPUTLEN=20
 MAXLEN=20
 LAMBDALR=2.0
 selection_criterion="primary_allsat" #primary allsat: select the sample satisfying all constraints with lowest primary loss; mrr_allsat: select the most recent sample satisfying all constraints which is repeating (mrr)
-NUM_SAMPLES=5 # jialiang: change this for number of samples per prompt
+NUM_SAMPLES=20
 length_diff=0
 linear_scale="false"
 OPTIMSTEPS=500
@@ -199,7 +199,7 @@ then
     OPTIMSTEPS=300
     DATASTYLE="text"
     DATAFILE=$DATA_DIR/control-prompts/pplm-discrim-prompts/prompts.txt
-    NUM_SAMPLES=1  
+    NUM_SAMPLES=5  # jialiang: change this for number of samples per prompt
     OUTPUTLEN=$OUTPUTLEN
     MAXLEN=$OUTPUTLEN
     sentmodel=SENTIMENTMODELSST2UNCASED
