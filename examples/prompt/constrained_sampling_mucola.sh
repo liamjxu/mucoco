@@ -41,7 +41,7 @@ OUTPUTLEN=20
 MAXLEN=20
 LAMBDALR=2.0
 selection_criterion="primary_allsat" #primary allsat: select the sample satisfying all constraints with lowest primary loss; mrr_allsat: select the most recent sample satisfying all constraints which is repeating (mrr)
-NUM_SAMPLES=1
+NUM_SAMPLES=1 # jialiang: change this for number of samples per prompt
 length_diff=0
 linear_scale="false"
 OPTIMSTEPS=500
@@ -916,6 +916,7 @@ then
 elif [[ "$debug" == "run_and_evaluate" ]]
 then
     python -W ignore -u decode_new.py\
+        --time\
         --datastyle $DATASTYLE\
         --data $DATAFILE\
         --additional-data $ADDITIONALDATAFILE\
