@@ -12,7 +12,7 @@ DATA_DIR=data/
 PRIMARYMODEL=$3
 
 #for mucola-disc and mucola-two-disc setups
-SENTIMENTMODELSST2UNCASED=models/sst2-classifier-disc
+SENTIMENTMODELSST2UNCASED=models/sst2-classifier-disc/checkpoint_best
 SENTIMENTMODELYELPUNCASED=models/yelp-classifier-disc
 
 #for mucola-gedi setup
